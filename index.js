@@ -7,12 +7,12 @@ document.addEventListener('submit', (event) => {
 });
 
 
-function f(event) {
+function blackBackground(event) {
     form.style.background = 'black';
 }
   
 for (const btn of document.querySelectorAll('.btn')) {
-    btn.addEventListener('focus', f)
+    btn.addEventListener('focus', blackBackground)
 }
 
 
@@ -29,3 +29,10 @@ tryclick.addEventListener('mouseover', (event) => {
     tryclick.style.transform = 'translate(' + i + 'px, -' + i + 'px)';
     i += Math.floor(Math.random() * (50 + 50)) - 50;
 }, {capture: true});
+
+const age = document.querySelector('.age');
+
+age.addEventListener('change', (event) => {
+    age.style.background = 'rgba(25, 57, 150,' +  (1-(age.max-age.value)/(age.max-age.min)) + ')';
+});
+console.log(age.value);
